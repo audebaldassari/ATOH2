@@ -10,7 +10,8 @@ import { HeroService } from '../hero.service';
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
-
+  firstname: string = '';
+  lastname: string = '';
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
@@ -19,13 +20,16 @@ export class HeroesComponent implements OnInit {
 
   getHeroes(): void {
     this.heroService.getHeroes()
-    .subscribe(heroes => this.heroes = heroes);
+      .subscribe(heroes => this.heroes = heroes);
   }
 
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.heroService.addHero({ name } as Hero)
+  add(firstname: string, lastname: string): void {
+    firstname = firstname.trim();
+    lastname = lastname.trim();
+    // si pas de length dans l'un ou dans l'autre alors retourne rien
+    if (!firstname.length || !lastname.length) { return; }
+    //sinon execute ce qu'il ya en dessous
+    this.heroService.addHero({ firstname: firstname, lastname: lastname } as Hero)
       .subscribe(hero => {
         this.heroes.push(hero);
       });
