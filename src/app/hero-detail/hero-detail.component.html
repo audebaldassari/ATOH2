@@ -2,8 +2,11 @@
   <h2>{{hero.firstname + hero.lastname | uppercase}} Details</h2>
   <div><span>id: </span>{{hero.id}}</div>
   <div>
-    <label for="hero-name">Hero name: </label>
-    <input id="hero-name" [(ngModel)]="hero.firstname" placeholder="Hero name" />
+    <label for="hero-firstname">Hero firstname: </label>
+    <input id="hero-firstname" [(ngModel)]="hero.firstname" placeholder="Hero firstname" #required firstname />
+
+    <label for="hero-lastname">Hero lastname: </label>
+    <input id="hero-lastname" [(ngModel)]="hero.lastname" placeholder="Hero lastname" #required lastname/>
   </div>
   <button (click)="goBack()">go back</button>
   <button (click)="save()">save</button>
