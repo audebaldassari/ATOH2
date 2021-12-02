@@ -1,18 +1,17 @@
 <h2>My Heroes</h2>
 
 <div>
-  <!--  <form>
-    <label for="firstname">Hero firstname: </label>
-    <input id="firstname" ngModel="firstname" #firstname required>
+  <label for="hero-firstname">Hero firstname: </label>
+  <input id="hero-firstname" [(ngModel)]="firstname" placeholder="Hero firstname" required />
 
-    <label for="lastname">Hero lastname: </label>
-    <input id="lastname" ngModel="lastname" #lastname required>
+  <label for="hero-lastname">Hero lastname: </label>
+  <input id="hero-lastname" [(ngModel)]="lastname" placeholder="Hero lastname" required />
 
-     (click) passes input value to add() and then clears the input
-    <button class="add-button" (click)="add(firstname.value, lastname.value); lastname.value=''; firstname.value='';">
-      Add hero
-    </button>
-  </form> -->
+  <!-- (click) passes input value to add() and then clears the input -->
+
+  <button class="add-button" (click)="add(firstname, lastname); lastname=''; firstname='';">
+    Add hero
+  </button>
 </div>
 
 <ul class="heroes">
